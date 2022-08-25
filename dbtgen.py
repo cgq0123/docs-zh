@@ -52,7 +52,7 @@ for src in sources.values():
 # models
 
 model_template = '''---
-title: {{ name }}
+title: {{ config.alias }}
 ---
 
 # {{ config.schema }}.**{{ config.alias }}**
@@ -80,7 +80,7 @@ models = manifest['nodes']
 
 os.makedirs(MODEL_DIR, exist_ok=True)
 
-for schema in set(mdl['config']['schema'] for mdl in models.values()):
+for schema in set(mdl['config']['schema'] for mdl in models.values() if mdl['config']['schema'] is not None):
     dirname = f"{MODEL_DIR}/{schema}"
     filename = f"{dirname}/.pages"
 
@@ -90,13 +90,14 @@ for schema in set(mdl['config']['schema'] for mdl in models.values()):
 
 for mdl in models.values():
 
-    config = mdl['config']
+    if mdl['config']['schema'] is not None:
+        config = mdl['config']
 
-    filename = f"{MODEL_DIR}/{config['schema']}/{config['alias']}.md"
-    with open(filename, "w") as f:
-        contrib = config['meta'].get('contributors', [])
-        contrib = contrib.split(', ') if isinstance(contrib, str) else contrib
-        f.write(rmodel_template.render(**mdl, contrib=contrib))
+        filename = f"{MODEL_DIR}/{config['schema']}/{config['alias']}.md"
+        with open(filename, "w") as f:
+            contrib = config['meta'].get('contributors', [])
+            contrib = contrib.split(', ') if isinstance(contrib, str) else contrib
+            f.write(rmodel_template.render(**mdl, contrib=contrib))
 
 # source example: 'source.spellbook.ethereum.transactions'
 
