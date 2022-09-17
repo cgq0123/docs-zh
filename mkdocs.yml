@@ -1,12 +1,13 @@
 site_name: Dune Docs
-site_url: https://dune-mkdocs-material.vercel.app/
+site_url: https://dune.com/docs
 repo_url: https://github.com/duneanalytics/docs
+site_dir: site/docs
 theme:
+  language: en
   name: material
+  custom_dir: overrides
   logo: images/dune-icon-only.png
   favicon: images/dune-icon-only.png
-  palette:
-    primary: indigo
   font:
     text: IBM Plex Sans
     code: IBM Plex Mono
@@ -14,16 +15,10 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.tabs
-    - navigation.sections
+    - navigation.tabs.sticky
     - navigation.indexes
-extra:
-  social:
-    - icon: fontawesome/brands/twitter 
-      link: https://twitter.com/DuneAnalytics
-    - icon: fontawesome/brands/discord 
-      link: https://discord.com/invite/ErrzwBz
-    - icon: fontawesome/brands/github 
-      link: https://github.com/duneanalytics
+nav:
+  - ...
 markdown_extensions:
   - admonition
   - pymdownx.highlight:
@@ -39,11 +34,24 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true 
+  - toc:
+      permalink: true
 plugins:
   - search
   - awesome-pages
   - mkdocs-video
 extra:
   generator: false
+  alternate:
+    - name: English
+      link: /
+      lang: en
+    - name: Chinese (Simplified)
+      link: https://docs.dune.com/v/chinese/
+      lang: zh
+  analytics:
+    provider: posthog
+    api_key: !ENV POSTHOG_API_KEY
+    api_host: !ENV POSTHOG_API_HOST
 extra_css:
   - stylesheets/extra.css

@@ -1,20 +1,19 @@
 ---
+title: Decoded Contracts
 description: >-
   Everything you should know about the submission process to successfully decode
   new contracts
 ---
 
-# Adding new contracts
-
-The Dune App contains an extensive catalog of decoded contracts in the form of [call and event tables](/tables/evm-blockchains/decoded-data/#decoded-smart-contract-data). These contracts are brought into Dune by wizards through a process commonly referred to as [Decoding](/tables/evm-blockchains/decoded-data/).
+The Dune App contains an extensive catalog of decoded contracts in the form of [call and event tables](../tables/decoded.md#decoded-smart-contract-data). These contracts are brought into Dune by wizards through a process commonly referred to as [Decoding](../tables/decoded.md).
 
 ## Quick tour
 
 ![type:video](https://www.youtube.com/embed/4v9zEYZvv34)
 
-## Submitting a new contract
+## Submitting a new contract for decoding
 
-Contracts can be submitted for decoding through the New contract form, which can be accessed via [My Creations > Contracts](https://dune.com/browse/contracts/authored) or within the dataset explorer in the query editor's sidebar:
+Contracts can be submitted for decoding through the New contract form, which can be accessed via [My Creations > Contracts](https://dune.com/browse/contracts/authored) or within the dataset explorer in the Query editor's sidebar:
 
 ![Add a new contract](images/add-new-contract-link.png)
 
@@ -65,16 +64,16 @@ You can view your submissions and their processing status at any time by navigat
 
 ## Frequently Asked Questions
 
-### Submitting contract information manually
+### How do I submit contract information manually?
 
 Although we try to fetch contract information such as the ABI, sometimes this information might not be available through our sources.
 
-In those instances, you will need to manually input the contract's name and its ABI. This information should be available in block explorers such as [Etherscan](http://etherscan.io/) or [Blockscout](https://blockscout.com/) if the contract is verified in any of those sites.
+In those instances, you will need to manually input the contract's name and its ABI. This information should be available in block explorers such as [Etherscan](http://etherscan.io) or [Blockscout](https://blockscout.com) if the contract is verified in any of those sites.
 
 !!! info
     If the contract being manually submitted is a Proxy contract, we recommend you to move on to the next section.
 
-### Submitting a Proxy contract
+### How do I submit a Proxy contract?
 
 In order to properly decode transactions towards contracts that fit the Proxy pattern, Dune needs to map the Proxy contract's address with the implementation contract's ABI.
 
@@ -85,18 +84,18 @@ We avoid monitoring the implementation contract's address because its logic is a
 !!! info
     For correctly decoding a Proxy contract, Dune needs the **Proxy address** and the **Implementation ABI**.
 
-### Re-submitting a contract
+### How do I re-submit a contract?
 
 Dune assumes each address in the blockchain can map to at most 1 contract. For this reason, submitting a contract with an address that already exists in `ethereum.contracts` will override it for Decoding purposes. This has a couple potential dangerous side effects:
 
-* If the project or contract name has changed, we will generate new tables for all of the contract's methods and events. In turn, previous tables will stop updating, data will be fragmented, and queries will stop working.
-* If the ABI has changed in a way that modifies an existing table's parameters, queries that depend on such table might break or become inaccurate.
+* If the project or contract name has changed, we will generate new tables for all of the contract's methods and events. In turn, previous tables will stop updating, data will be fragmented, and Queries will stop working.
+* If the ABI has changed in a way that modifies an existing table's parameters, Queries that depend on such table might break or become inaccurate.
 
 If you attempt to submit an already existent contract, make sure to include extra context as part of the submission so we can assess whether it's worth overriding the contract's data.
 
 Sometimes, the risk of accepting a re-submission is higher than the perceived value by us, and my result in a rejection. If you disagree, feel free to reach out to us at #decoding in the Dune Discord and we'll see what we can do.
 
-### Decoding of Diamond Proxy contracts
+### How do I submit Diamond Proxy contracts?
 
 Similar to vanilla Proxy contracts, [EIP-2535](https://eips.ethereum.org/EIPS/eip-2535) contracts can be supported by passing in the address of the Diamond Proxy as well as **a single ABI representing the totality of all the facets interfaces**.
 
@@ -104,6 +103,6 @@ Similar to vanilla Proxy contracts, [EIP-2535](https://eips.ethereum.org/EIPS/ei
 
 In the interest of data quality, we reject duplicative, incorrect or low quality submissions. To avoid that, make sure to submit accurate contract information.
 
-### Other questions
+### For all other questions:
 
 Head over to #decoding on our [Discord](https://discord.gg/ErrzwBz) and we'll be happy to help!

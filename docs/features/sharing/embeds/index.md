@@ -1,10 +1,7 @@
 ---
+title: Embeds
 description: Embeds allow you to enjoy beautiful, updating dune charts across the web!
 ---
-
-# Embeds
-
-## Using Embeds
 
 **Screenshots are boring and tech of the past.**
 
@@ -12,9 +9,9 @@ Instead of using static screenshots in varying forms of quality, Dune has a nati
 
 You can generate embed links by clicking on any query title and selecting the embed function in the top right corner.
 
-![generating an embedd link](images/embed-link.gif)
+![generating an embed link](images/embed-link.gif)
 
-### Parameterized embeds
+## Parameterized embeds
 
 Embed links also work with parameterized queries, but it is a bit tricky to get them to work:
 
@@ -28,12 +25,13 @@ The syntax for this is:
 
 An example of this would be:
 
-`>https://dune.com/embeds/118220/238460/aa002dd3-f9e2-4d63-86c8-b765569306c6NFT?address=0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7&rolling_n_trades=500`\
+`>https://dune.com/embeds/118220/238460/aa002dd3-f9e2-4d63-86c8-b765569306c6NFT?address=0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7&rolling_n_trades=500`
+
 \`\`
 
-### Embeds across different platforms
+## Embeds across different platforms
 
-Here is a couple of exemplary use cases for Dune embeds:
+Here are a couple of exemplary use cases for Dune embeds:
 
 <div class="cards grid" markdown>
 - [Discord](discord.md)
@@ -42,10 +40,10 @@ Here is a couple of exemplary use cases for Dune embeds:
 - [Webpages](webpages.md)
 </div>
 
-### Known Issues
+## Known Issues
 
-Unfortunately, embeds do not work in a couple of fairly popular sites, this includes:
+Unfortunately, embeds do not work in a couple of fairly popular sites, including:
 
-* substack
-* medium
-* gitbook
+* Substack
+* Medium
+* GitBook

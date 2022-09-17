@@ -5,4 +5,5 @@ nav:
 - tables
 - spellbook
 - dbt
+- API: api
 - resources

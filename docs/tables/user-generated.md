@@ -1,21 +1,24 @@
 ---
+title: User Generated Tables
 description: >-
   The Schema dune_user_generated is an easy way to construct your own view,
   function or table inside of our database.
 ---
 
-# User Generated Tables
+!!! note
+    User generated tables are not yet available on V2.
 
-#### Note that these tables are not guaranteed to contain correct data, please use these with caution if you haven't created them yourself.
+**Note that these tables are not guaranteed to contain correct data, please use these with caution if you haven't created them yourself.**
 
 **Always save the constructor arguments for your views. Sometimes we have to drop views in order to be able to change some decoding tables or proxy dependencies and you might have to redeploy your view.**
 
-## Usecases
+## Use Cases
 
-There is several ways in which you can utilize your own views and tables inside of Dune to make working with your data on Dune even easier.\
+There is several ways in which you can utilize your own views and tables inside of Dune to make working with your data on Dune even easier.
+
 Your own tables, views and function all have an important part to play in creating content on Dune and make maintenance of your dashboards and queries easier if used correctly.
 
-If you are unfamiliar with tables, views, materialized views and functions please consult the [pgSQL documentation](https://www.postgresqltutorial.com/postgresql-views/) or check out our [Tutorials](../about/tutorials/).
+If you are unfamiliar with tables, views, materialized views and functions please consult the [pgSQL documentation](https://www.postgresqltutorial.com/postgresql-views) or check out our [getting started guide](../getting-started/index.md).
 
 ### Storing Information
 
@@ -42,16 +45,17 @@ This table generates a view that you can use to join on your query.
 
 Views can also be used to aggregate the actions of multiple smart contracts into one view that contains all the necessary data.
 
-This is especially useful if you are working with the same dataset over and over and only change the way you display or aggregate the data. That way, instead of having to query for your dataset again and again, you just put it into a view once and then can start referencing that view.\
+This is especially useful if you are working with the same dataset over and over and only change the way you display or aggregate the data. That way, instead of having to query for your dataset again and again, you just put it into a view once and then can start referencing that view.
+
 This will allow you to change the base query that constructs your dataset without having to go through multiple different instances of your query. Think about it like splitting your data collection and the actual work/display you do with that data into two different parts that function independently of each other.
 
 Utilizing this will make the maintenance of your dashboards much easier since you can just change the **dune\_user\_generated** view instead of having to go through all queries individually.
 
 A great example of this in action is almost all queries on [this dashboard](https://dune.com/keeganead/cryptoart\_1). The Creator made one base dataset in the **dune\_user\_generated** schema and uses that to base all of his queries on.
 
-Please do note that while this approach works for most cases, views can get very computationally expensive and you might be better off constructing a materialized view or table in our [abstractions](abstractions/).
+Please do note that while this approach works for most cases, views can get very computationally expensive and you might be better off constructing a materialized view or table in our [abstractions](abstractions.md).
 
-This example takes the data from uniswap\_v3 and standardizes the data for the dex.trades table.
+This example takes the data from Uniswap\_v3 and standardizes the data for the dex.trades table.
 
 ```sql
 CREATE OR REPLACE view dune_user_generated.uniswap_v3 as 
@@ -121,13 +125,13 @@ CREATE OR REPLACE view dune_user_generated.uniswap_v3 as
 
 ### Testing Abstractions
 
-Another great use case of utilizing the "create" function is to test out if the Pull Request you are making to our abstractions github actually produce the intended results. Simply try running the query with the schema **dune\_user\_generated** instead of the actual schema that you want in Github.
+Another great use case of utilizing the "create" function is to test out if the Pull Request you are making to our abstractions GitHub actually produce the intended results. Simply try running the query with the schema **dune\_user\_generated** instead of the actual schema that you want in GitHub.
 
 If the test succeeds, you can proceed in making the Pull Request. If you can please attach the "Test Table/View" into the Pull Request.
 
 ### View Definition
 
-To find out how a particular view got created you can run queries against pgsql base tables.
+To find out how a particular view got created you can run queries against PostgreSQL base tables.
 
 **A particular view**
 
@@ -172,4 +176,4 @@ WHERE tgtdep.deptype = 'i'::"char" AND tgtobj.relkind = 'v'::"char"
 
 You need to temporarily break the dependencies in order to be able to change `view1`.
 
-Find the query [here](https://dune.com/queries/70916). Big thanks to gosuto for uncovering this.
+Find the query [here](https://dune.com/queries/70916). Big thanks to [@gosuto](https://dune.com/gosuto) for uncovering this.

@@ -1,12 +1,11 @@
 ---
+title: Web Pages
 description: You can embedd Dune's Visualizations on most Websites with ease.
 ---
 
-# Webpages
+**Dune Charts can live in your website!**
 
-### Dune Charts can live in your website!
-
-You can use Dune's embed function to embed the charts usually displayed on Dune Analytics Dashboards into your website.
+You can use Dune's embed function to embed the charts usually displayed on Dune Dashboards into your website.
 
 Here is a code snippet example:
 

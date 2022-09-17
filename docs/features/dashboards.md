@@ -1,34 +1,36 @@
-# Dashboards
+---
+title: Dashboards
+---
 
-### Dashboards are where Dune's content lives and gets discovered.
+**Dashboards are where Dune's content lives and gets discovered.**
 
-Dashboards on Dune consist of widgets. Widgets can either be visualizations or a text box. It is also possible to embed images/gifs inside of the text box.
+Dashboards on Dune consist of widgets. Widgets can either be Visualizations or a text box. It is also possible to embed images/GIFs inside of the text box.
 
 You can freely resize every widget to match the layout you want to create.
 
-### Creating a Dashboard
+## Creating a Dashboard
 
-You can create a new dashboard by navigating to our "Discover" page and clicking on the "new dashboard" button on the right.
+You can create a new Dashboard by navigating to our "Discover" page and clicking on the "new Dashboard" button on the right.
 
-The initial name that you give to your dashboard will also be the url slug. You can't change the url slug afterwards, so be mindful of the name you choose. Changing the dashboards display name is always possible though.
+The initial name that you give to your Dashboard will also be the URL slug. You can't change the URL slug afterwards, so be mindful of the name you choose. Changing the Dashboards display name is always possible though.
 
-![create dashboard](images/create-dashboard.gif)
+![create Dashboard](images/create-dashboard.gif)
 
-### Adding Visualizations
+## Adding Visualizations
 
-You can simply add visualizations to your dashboard by going into the editor mode and clicking on the corresponding button. To go into editor mode first open one of your own dashboards and click on the edit button on the top right.
+You can simply add Visualizations to your Dashboard by going into the editor mode and clicking on the corresponding button. To go into editor mode first open one of your own Dashboards and click on the edit button on the top right.
 
-![Add visualizations](images/dashboard-visualizations.gif)
+![Add Visualizations](images/dashboard-visualizations.gif)
 
-### Adding text boxes
+## Adding text boxes
 
-To add text boxes to your dashboard you have to go into editor mode first and can afterwards click on "add text widget". This will open a simple text editor window.
+To add text boxes to your Dashboard you have to go into editor mode first and can afterwards click on "add text widget". This will open a simple text editor window.
 
 ![Text widget](images/dashboard-text-widget.gif)
 
-Text boxes support a subset of markdown. You can manipulate text and embed images and gifs.
+Text boxes support a subset of markdown. You can manipulate text and embed images and GIFs.
 
-#### Text manipulation
+### Text manipulation
 
 This is a short list to markdown syntax. A more advanced markdown guide can be found [here](dashboards.md#dashboards-are-where-dunes-content-lives-and-gets-discovered.).
 
@@ -43,11 +45,9 @@ This is a short list to markdown syntax. A more advanced markdown guide can be f
 | [Horizontal Rule](https://www.markdownguide.org/basic-syntax/#horizontal-rules) | `---`                                                                                              |
 | [Link](https://www.markdownguide.org/basic-syntax/#links)                       | `[title](https://www.example.com)`                                                                 |
 
-####
+## Embedding Images and GIFs
 
-### Embedding Images and GIFs
-
-Our text boxes can also be used to embed images or gifs into your dashboard.
+Our text boxes can also be used to embed images or GIFs into your Dashboard.
 
 The Syntax for embedding images is:
 
@@ -69,10 +69,10 @@ You can combine images and text in one widget.
 
 ![embedding an image and resizing it](images/dashboard-image.gif)
 
-### Arranging the layout of the dashboard
+## Arranging the layout of the Dashboard
 
-You can arrange the different widgets on the dashboard in whatever way you like.
+You can arrange the different widgets on the Dashboard in whatever way you like.
 
-Widgets will always try to move upwards, so if you want to create a visual divider section in your dashboard it is advised to create a big text box as a divider.
+Widgets will always try to move upwards, so if you want to create a visual divider section in your Dashboard it is advised to create a big text box as a divider.
 
 ![Dashboard layout](images/dashboard-layout.gif)

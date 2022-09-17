@@ -1,10 +1,9 @@
 ---
+title: mirror.xyz
 description: Dune embedds work in Mirror.xyz!
 ---
 
-# Mirror.xyz
-
-Dune charts can easily be embedded into articles on mirror.xyz. Simply generate an embed link and postfix it with `?display=iframe`
+Dune Visualizations can easily be embedded into articles on mirror.xyz. Simply generate an embed link and postfix it with `?display=iframe`
 
 An example of this would be:
 
