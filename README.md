@@ -20,6 +20,12 @@ Install the python libraries:
 pip install -r requirements.txt
 ```
 
+Generate dbt:
+
+```bash
+python dbtgen.py
+```
+
 Run the docs locally:
 
 ```bash
