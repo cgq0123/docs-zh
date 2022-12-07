@@ -205,7 +205,7 @@ Dune 提供了各种可视化，您可以用它来直观地展示数据，包括
 
 下面是每个部分的简要介绍：
 
-- [入门](getting-started/index.md) 是您将得到指导并学习如何使用 Dune 的板块！
+- [入门](getting-started/index.md) 是您了解方向并学习如何使用 Dune 的板块！
 - [参考](reference/index.md) 是您可以得到 "谁、什么、哪里 "问题的答案，并找到我们收集的一些补充资料的地方。
 - [魔法书](spellbook/index.md) 是您可以找到创建和使用魔法所需的一切的地方。
 - [API](api/index.md) 是您可以找到将我们的 API 集成到您的项目中所需要的一切的地方。
