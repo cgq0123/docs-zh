@@ -12,7 +12,7 @@
 
 然而，由于这些表中常见的编码数据的性质，使用原始数据表编写的查询很难理解和审阅。此外，原始数据表具有非常多的行，因此查询速度可能很慢。
 
-大多数时候，您最好是[提交合同进行解码]（../features/decoded contracts.md）和使用[解码数据]（decoded.md）。
+大多数时候，您最好是[提交合约进行解码]（../features/decoded contracts.md）和使用[解码数据]（decoded.md）。
 
 ## EVM链的差异
 
