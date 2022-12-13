@@ -210,7 +210,7 @@ Dune 提供了各种可视化，您可以用它来直观地展示数据，包括
 - [魔法书](spellbook/index.md) 是您可以找到创建和使用魔法所需的一切的地方。
 - [API](api/index.md) 是您可以找到将我们的 API 集成到您的项目中所需要的一切的地方。
 
-如果您迫不及待地想用您的魔杖开始工作，请跳到我们的[查询快速入门](getting-started/query-quick-start/index.md)的演练中，这将帮助您建立您的第一个 Dune 查询!
+如果您迫不及待地想用您的魔杖开始工作，请跳到我们的[查询快速入门](getting-started/query-quick-start/index.md)的演练中，这将帮助您建立您的第一个 Dune 查询！
 
 ## Dune 是一个社区的努力
 

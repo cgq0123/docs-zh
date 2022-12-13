@@ -10,7 +10,7 @@ DuneV2 改变了我们整个数据库的架构。 我们正在从 PostgreSQL 数
 * 与 PostgresQL 的面向行的方法相反，Spark 是一个面向列的数据库。
 * 传统的索引被列块级别的 最小/最大 值替换。
 
-!!! 注意
+!!! note
     下面是关于V2给构建查询带来的变化的详细介绍。 您可以从这里开始练习 [@springzhang](https://dune.com/springzhang/)'s [Tips and Tricks for Dune V2 Queries and Visualizations](https://dune.com/springzhang/tips-and-tricks-for-query-and-visualization-in-v2-engine)
 
 ## Databricks SQL 与 PostgresSQL 操作符的变化

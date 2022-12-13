@@ -9,7 +9,7 @@ description: 一些法力无边的巫师把一些看板放在一起，对那些�
 
 ## 教程看板
 
-这些看板是学习新的 Dune、数据分析和区块链分析技能的好帮手!
+这些看板是学习新的 Dune、数据分析和区块链分析技能的好帮手！
 
 - [@springzhang](https://dune.com/springzhang/)'s [Tips and Tricks for Dune V2 Queries and Visualizations](https://dune.com/springzhang/tips-and-tricks-for-query-and-visualization-in-v2-engine)
 - [@1chioku](https://dune.com/1chioku)'s [Data Visualization Cheat Sheet](https://dune.com/1chioku/data-visualisation-cheat-sheet)

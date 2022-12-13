@@ -24,9 +24,9 @@ SLA将在未来的企业定价计划中提供。
 
 ### API 是否支持查询参数？
 
-API 确实支持查询参数!
+API 确实支持查询参数！
 
-对于包含参数的 Dune 查询，您可以将参数作为 Dune 查询的一部分来传递 [执行查询ID的接入点](../../api/api-reference/execute-query-id.md)!
+对于包含参数的 Dune 查询，您可以将参数作为 Dune 查询的一部分来传递 [执行查询ID的接入点](../../api/api-reference/execute-query-id.md)！
 
 更多内容请见 [创建带参数的 Dune 查询](../../getting-started/queries/parameters.md).
 

@@ -57,7 +57,7 @@ Dune API 目前尚处于内部测试阶段，有小一批内测用户，但会�
 
 我们社区的 [@bh2smith](https://dune.com/bh2smith)  (同时也来自 [Cow Protocol](https://dune.com/cowprotocol)) 周四在 [DuneCon](https://dunecon.com) 发表了一次讲话，向我们展示了 Cow Protocol 使用 API 的真实案例。
 
-[在这里看视频重播](https://youtu.be/VEvk-iqxXIM?t=404)!
+[在这里看视频重播](https://youtu.be/VEvk-iqxXIM?t=404)！
 
 ## 重要链接
 
