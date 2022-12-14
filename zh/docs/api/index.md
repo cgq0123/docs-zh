@@ -11,7 +11,7 @@ description: 欢迎来到 Dune API
 
 本文档描述了所有可用的 API 调用及返回对象的属性。如果您有任何疑问或反馈意见，请通过 [api-feedback@dune.com](mailto:api-feedback@dune.com) 联系我们，或者来我们的 #[dune-api](https://discord.com/channels/757637422384283659/1019910980634939433) Discord 频道。
 
-！！！ 注意
+!!! note
 
 截至目前，Dune API 尚处于内测阶段。这意味着它的工作方式和返回数据可能会在提前通知后发生变化。
 
