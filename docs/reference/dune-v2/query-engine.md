@@ -29,7 +29,7 @@ The syntax and keyword operator differences between Postgres, Spark, and Dune SQ
 | **Alias naming is different** | as "daily active users" | as \`daily active user\` | as "daily active users" |
 | **Exponentiation notation** | `x/10^y` or `x * 1e123` | `x*power(10,y)` or `x*1e123` | `x*power(10,y)` or `x * 1e123` |
 | **Interval argument has different syntax** | `Interval '1day'` | `Interval '1 day'` | `Interval '1' day` |
-| **Generate_series () is now sequence ()** | `generate_series('2022-05-15', CURRENT_DATE, '1 day')` | `explode(sequence(to_date('2022-01-01'), to_date('2022-02-01'), interval 1 day))` | `unnest(sequence(date('2022-01-01'), date('2022-02-01'), interval '7' day))`<br><br>Has a 10000 values limit. |
+| **Generate_series () is now sequence ()** | `generate_series('2022-05-15', CURRENT_DATE, '1 day')` | `explode(sequence(to_date('2022-01-01'), to_date('2022-02-01'), interval 1 day))` | [`unnest(sequence(date('2022-01-01'), date('2022-02-01'), interval '7' day))`](https://dune.com/queries/1764158?d=11)<br><br>Has a 10000 values limit. |
 | **Handling decimals for prices.usd** | Don’t use `prices.usd decimals` | Replaced by `prices.tokens decimals` | Replaced by `tokens_[blockchain].erc20.decimals` |
 | **Define NULL array** |` NULL::integer[]` | `CAST(NULL AS ARRAY&lt;int&gt;))` | `CAST(NULL AS ARRAY&lt;int&gt;))` |
 | **encoding strings to hex** | `encode(string, 'hex')` | `hex(string)` | `hex(string)`<br><br>*available soon |
@@ -40,6 +40,7 @@ The syntax and keyword operator differences between Postgres, Spark, and Dune SQ
 | **Explode** | `SELECT unnest(array) FROM table` | `SELECT explode(array) FROM table` | `SELECT vals.val FROM table1, unnest(arrayFromTable1) as vals(val)`<br><br>you have to use `unnest` with a `cross join`, as described in this [blog post](https://theleftjoin.com/how-to-explode-arrays-with-presto/). |
 | **Median** | `PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY x)` | `PERCENTILE_CONT(0.5) WITHIN GROUP(ORDER BY x)` | `approx_percentile(x, 0.5)` |
 | **Using “is True/False”** | `X is true` | `X is true` | `X = true` |
+| **String Data Type** | `varchar` | `string` | `varchar` |
 
 ### Double quotes are not recommended
 
