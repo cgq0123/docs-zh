@@ -11,8 +11,6 @@ The Dune API gives you full access to the queries and data you can see on the Du
 
 This documentation describes all of the available API calls and properties of the returned objects. If you have any questions or feedback, please reach out to [api-feedback@dune.com](mailto:api-feedback@dune.com) or our #[dune-api](https://discord.com/channels/757637422384283659/1019910980634939433) Discord channel!
 
-!!! warning 
-    At this time, the Dune API is in private beta. This means that the way it works and the data it returns may change with advanced notice. 
 
 ## How does the API work?
 
@@ -29,10 +27,7 @@ Similarly, results from API executions are not currently reflected on Dune’s w
 ## API Getting Started
 
 ### Obtaining an API Key
-
-Dune API is currently in private beta with a closed set of users and will be open to the public in the coming months.
-
-If you're a startup founder, researcher, or protocol who would like access now, [complete this form](https://docs.google.com/forms/d/e/1FAIpQLSfooxrP1RcDthQmXqN5K25wZDICYuhdF8WAUuWcqO3NzLaSbA/viewform) and we'll get back to you if we can meet your needs.
+After purchasing an an app plan and API package, you can find the API key in your [settings page](https://dune.com/settings/api)) 
 
 ### Picking a Programming Language
 While you can consume our API in the language of your choice - see the [API Reference](api-reference/authentication.md) section - we currently have quick start guides for [Python](quick-start/api-py.md) and [Node.js](quick-start/api-js.md).
