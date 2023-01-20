@@ -15,7 +15,8 @@ With Dune V2 we’re moving away from a [PostgreSQL](https://www.postgresql.org/
 The syntax and keyword operator differences between Postgres, Spark, and Dune SQL are quite minimal, however there are a few to be aware of.
 
 !!! warning
-    **Dune SQL is still in alpha!** If you find any other changes in Spark or Dune SQL that are important to note, please feel free to [submit a PR to this docs page on GitHub](https://github.com/duneanalytics/docs/edit/master/docs/reference/dune-v2/query-engine.md) or let us know in #dune-sql.
+    **Dune SQL is still in alpha!** If you find any other changes in Spark or Dune SQL that are important to note, please feel free to [submit a PR to this docs page on GitHub](https://github.com/duneanalytics/docs/edit/master/docs/reference/dune-v2/query-engine.md) or let us know in #dune-sql. 
+    **If you're running into errors using `||`, `concat()`, `replace()`, `trim()`, `length()`, or other operators on bytearrays (things like addresses, transactions, etc)** then check out the [Byte Array Functions](#byte-array-functions-in-dune-sql) section.
 
 ### Syntax Comparison
 
@@ -42,9 +43,9 @@ The syntax and keyword operator differences between Postgres, Spark, and Dune SQ
 | **Using “is True/False”** | `X is true` | `X is true` | `X = true` |
 | **String Data Type** | `varchar` | `string` | `varchar` |
 | **Casting as Strings** | `cast([xxx] as string)` | `cast([xxx] as string)` | `cast([xxx] as varchar)` |
-| **`left()` is no longer a method available for returning substrings** | `left([string],[length])` | `left([string],[length])` | `substr([string], [start], [length])` <br><br> [Returns varchar; Positions start with 1, so use `1` for length if you want to replicate left() functionality](https://trino.io/docs/current/functions/string.html?highlight=substr#substring)|
+| **`left()` is no longer a method available for returning substrings** | `left([string],[length])` | `left([string],[length])` | `substr([string], [start], [length])` <br><br> [Returns varchar; Positions start with 1, so use `1` for length if you want to replicate left() functionality](https://trino.io/docs/current/functions/string.html?highlight=substr#substring) `left(somestring, somenumber) -> substr(somestring, 0, somenumber)`|
+| **Aggregate Functions** | `array_agg(col)`, `array_agg(distinct(col))` | `array_agg(col)` or `collect_list(col)`, `collect_set(col)` or `array_agg(distinct(col))` | `array_agg(col)`, `array_agg(distinct(col))` |
 
-left(somestring, somenumber) -> substr(somestring, 0, somenumber)
 
 ### Double quotes are not recommended
 
@@ -67,6 +68,26 @@ We support the [numerical types](https://trino.io/docs/current/language/types.ht
 The byte array conversion functions throw an overflow exception if the byte array is larger than the number of bytes supported of the type, even if the most significant bytes are all zero. It is possible to use `bytearray_ltrim` in order to trim the zero bytes from the left.
 
 [Here is an example query](https://dune.com/queries/1847704?d=11) that covers all of the above functions.
+
+
+## Byte Array Functions in Dune SQL
+
+Dune SQL currently represents byte arrays as `0x`-prefixed strings. In the future we will represent byte arrays using the `varbinary`. To make it simpler to work with byte arrays we have the following helper functions. They simplify interactions with byte arrays, as they automatically account for the `0x`-prefix and use byte index instead of characther index. For instance, the `bytearray_substring` methods take indexes by byte, not by characther (twice the byte array length). If there is an operation you need to do on byte arrays which is not covered by a function in the list below you should reach out to the Dune team. 
+
+*Operators like `||` and functions like `concat()` will no longer work with bytearrays, you will need to `cast(some_bytearray as varchar)` first.*
+
+| Function | Return Type | Argument Types | Description |
+| --- | --- | --- | --- |
+| bytearray_concat | varchar | varchar, varchar | Concatenates two byte arrays |
+| bytearray_length | bigint | varchar | Returns the length of a byte array |
+| bytearray_ltrim | varchar | varchar | Removes zero bytes from the beginning of a byte array |
+| bytearray_position | bigint | varchar, varchar | Returns the index of a given bytearray (or 0 if not found) |
+| bytearray_replace | varchar | varchar, varchar, varchar | Greedily replaces occurrences of a pattern within a byte array |
+| bytearray_reverse | varchar | varchar | Reverse a given byte array |
+| bytearray_rtrim | varchar | varchar | Removes zero bytes from the end of a byte array |
+| bytearray_starts_with | boolean | varchar, varchar | Determines whether a byte array starts with a prefix |
+| bytearray_substring | varchar | varchar, integer | Suffix byte array starting at a given index |
+| bytearray_substring | varchar | varchar, integer, integer | Sub byte array of given length starting at an index |
 
 
 ## Query queries as views in Dune SQL
